@@ -16,6 +16,8 @@
         }).then(blob => {
             console.log(blob);
             document.getElementById('arnie').src = URL.createObjectURL(blob)
+        }).catch(error => {
+            console.error(error)
         })
     </script>
 
