@@ -10,15 +10,26 @@
     <img src="" id="arnie" width='480' />
     <script>
         console.log('about to fetch a arnie');
-        fetch('arnie.jpg').then(response => {
-            console.log(response);
-            return response.blob()
-        }).then(blob => {
-            console.log(blob);
+        // rewritten code to use async function:
+
+        catchArnie()
+
+        async function catchArnie(){
+            const response = await fetch('arnie.jpg');
+            const blob = await response.blob();
             document.getElementById('arnie').src = URL.createObjectURL(blob)
-        }).catch(error => {
-            console.error(error)
-        })
+        }
+
+
+        // fetch('arnie.jpg').then(response => {
+        //     console.log(response);
+        //     return response.blob()
+        // }).then(blob => {
+        //     console.log(blob);
+        //     document.getElementById('arnie').src = URL.createObjectURL(blob)
+        // }).catch(error => {
+        //     console.error(error)
+        // })
     </script>
 
     
